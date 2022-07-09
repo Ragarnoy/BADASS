@@ -6,6 +6,7 @@ Vagrant.configure("2") do |config|
         vb.name = "badass-project"
         vb.memory = 8192
         vb.cpus = 3
+        vb.gui = true
     end
 
     config.vm.provision "shell",
