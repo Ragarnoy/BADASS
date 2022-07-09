@@ -3,9 +3,10 @@
   hosts: all
   connection: local
   tasks:
-    - name: install basic packages
+    - name: Install basic packages
       ansible.builtin.package:
         name:
+          - apt-transport-https
           - ca-certificates
           - curl
           - wget
@@ -18,7 +19,36 @@
   hosts: all
   connection: local
   tasks:
-    - name: install docker required package
+    - name: Add Docker GPG key
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /tmp/docker.gpg
+        mode: 0o600
+
+    - name: Extract Docker GPG key
+      ansible.builtin.command: >
+        gpg --dearmor -o /etc/apt/keyrings/docker.gpg /tmp/docker.gpg
+      args:
+        creates: /etc/apt/keyrings/docker.gpg
+      become: true
+
+    - name: Configure docker repository
+      ansible.builtin.shell: |
+        set -o pipefail
+        echo \
+          "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+          | sudo tee /etc/apt/sources.list.d/docker.list
+      args:
+        creates: /etc/apt/sources.list.d/docker.list
+        executable: /bin/bash
+      become: true
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+      become: true
+
+    - name: Install docker required package
       ansible.builtin.package:
         name:
           - docker-ce
