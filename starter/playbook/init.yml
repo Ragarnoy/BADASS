@@ -18,10 +18,6 @@
         state: latest
       become: true
 
-- name: Configure Docker
-  hosts: all
-  connection: local
-  tasks:
     - name: Add Docker GPG key
       ansible.builtin.get_url:
         url: https://download.docker.com/linux/ubuntu/gpg
