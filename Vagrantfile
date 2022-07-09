@@ -1,3 +1,7 @@
+def gui_enabled?
+    !ENV.fetch('GUI', '').empty?
+end
+
 Vagrant.configure("2") do |config|
     config.vm.box = "generic/ubuntu2204"
     config.vm.hostname = "badass"
@@ -6,7 +10,7 @@ Vagrant.configure("2") do |config|
         vb.name = "badass-project"
         vb.memory = 8192
         vb.cpus = 3
-        vb.gui = true
+        vb.gui = gui_enabled?
     end
 
     config.vm.synced_folder ".", "/vagrant"
