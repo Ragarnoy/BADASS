@@ -1,0 +1,29 @@
+---
+- name: Basic configuration
+  hosts: all
+  connection: local
+  tasks:
+    - name: install basic packages
+      ansible.builtin.package:
+        name:
+          - ca-certificates
+          - curl
+          - wget
+          - gnupg
+          - lsb-release
+        state: latest
+      become: true
+
+- name: Configure Docker
+  hosts: all
+  connection: local
+  tasks:
+    - name: install docker required package
+      ansible.builtin.package:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: latest
+      become: true

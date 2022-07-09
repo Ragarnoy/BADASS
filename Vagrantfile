@@ -11,4 +11,9 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell",
         run: "once",
         path: "starter/init_vm_install.sh"
+
+    config.vm.provision "ansible_local" do |ansible|
+        ansible.install = false
+        ansible.playbook = "starter/playbook/init.yml"
+    end
 end
