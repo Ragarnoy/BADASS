@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/jammy64"
+    config.vm.box = "generic/ubuntu2204"
     config.vm.hostname = "badass"
 
     config.vm.provider "virtualbox" do |vb|
@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
         vb.cpus = 3
         vb.gui = true
     end
+
+    config.vm.synced_folder ".", "/vagrant"
 
     config.vm.provision "shell",
         run: "once",
