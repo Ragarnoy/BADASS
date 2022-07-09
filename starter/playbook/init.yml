@@ -56,7 +56,7 @@
         update_cache: true
       become: true
 
-    - name: Install docker required package
+    - name: Install docker + GNS3 + netutils
       ansible.builtin.package:
         name:
           - docker-ce
