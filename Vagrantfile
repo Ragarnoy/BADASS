@@ -8,5 +8,7 @@ Vagrant.configure("2") do |config|
         vb.cpus = 3
     end
 
-    config.vm.provision "shell", path: "starter/init_vm_install.sh"
+    config.vm.provision "shell",
+        run: "once",
+        path: "starter/init_vm_install.sh"
 end
