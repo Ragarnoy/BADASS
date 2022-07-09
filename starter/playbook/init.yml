@@ -43,6 +43,11 @@
         executable: /bin/bash
       become: true
 
+    - name: Add GNS3 repository
+      ansible.builtin.apt_repository:
+        repo: ppa:gns3/ppa
+      become: true
+
     - name: Update apt cache
       ansible.builtin.apt:
         update_cache: true
