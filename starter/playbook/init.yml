@@ -15,6 +15,7 @@
           - software-properties-common
           - git
           - vim
+          - expect
         state: latest
       become: true
 
@@ -82,4 +83,15 @@
           - ubuntu-desktop
           - lightdm
         state: latest
+      become: true
+
+    - name: Config Display manager
+      ansible.builtin.shell: |
+        spawn dpkg-reconfigure lightdm -f readline
+        expect "Default display manager:"
+        send "2\r"
+        expect eof
+        exit
+      args:
+        executable: /usr/bin/expect
       become: true
