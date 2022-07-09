@@ -63,6 +63,10 @@
           - docker-ce-cli
           - containerd.io
           - docker-compose-plugin
+
+          - gns3-gui
+          - gns3-server
+
         state: latest
       become: true
 
