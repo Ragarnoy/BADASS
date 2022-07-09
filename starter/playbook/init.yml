@@ -12,6 +12,9 @@
           - wget
           - gnupg
           - lsb-release
+          - software-properties-common
+          - git
+          - vim
         state: latest
       become: true
 
