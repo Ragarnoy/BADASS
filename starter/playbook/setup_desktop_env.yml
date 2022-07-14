@@ -1,0 +1,45 @@
+---
+- name: Setup & Configure Desktop env
+  hosts: all
+  connection: local
+  handlers:
+    - name: Restart lightdm
+      ansible.builtin.service:
+        name: lightdm
+        state: restarted
+      become: true
+
+  tasks:
+    - name: install Desktop env
+      ansible.builtin.package:
+        name:
+          - ubuntu-desktop
+          - lightdm
+        state: latest
+      become: true
+
+    - name: Check current configured desktop manager
+      ansible.builtin.command: cat /etc/X11/default-display-manager
+      changed_when: false
+      register: default_display_manager
+
+    - name: Config Display manager
+      ansible.builtin.shell: |
+        spawn dpkg-reconfigure lightdm -f readline
+        expect "Default display manager:"
+        send "2\r"
+        expect eof
+        exit
+      args:
+        executable: /usr/bin/expect
+      changed_when: true
+      when: default_display_manager.stdout != "/usr/sbin/lightdm"
+      become: true
+
+    - name: Configure lidhtdm
+      ansible.builtin.template:
+        src: lightdm.conf.j2
+        dest: /etc/lightdm/lightdm.conf.d/autologin.conf
+        mode: 0o644
+      notify: Restart lightdm
+      become: true
