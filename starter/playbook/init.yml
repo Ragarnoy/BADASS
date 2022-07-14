@@ -22,19 +22,9 @@
     - ansible.builtin.import_tasks: config_docker_repo.yml
     - ansible.builtin.import_tasks: config_gns3_repo.yml
 
-    - name: Update apt cache
-      ansible.builtin.apt:
-        update_cache: true
-      become: true
-
-    - name: Install docker + GNS3 + netutils
+    - name: Install netutils
       ansible.builtin.package:
         name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-compose-plugin
-
           - dnsutils
           - wireshark
         state: latest
