@@ -11,6 +11,11 @@
         state: latest
       become: true
 
+    - name: Check current configured desktop manager
+      ansible.builtin.command: cat /etc/X11/default-display-manager
+      changed_when: false
+      register: default_display_manager
+
     - name: Config Display manager
       ansible.builtin.shell: |
         spawn dpkg-reconfigure lightdm -f readline
@@ -20,4 +25,6 @@
         exit
       args:
         executable: /usr/bin/expect
+      changed_when: true
+      when: default_display_manager.stdout != "/usr/sbin/lightdm"
       become: true
