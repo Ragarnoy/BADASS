@@ -3,20 +3,23 @@
 - name: Setup & Configure Desktop env
   hosts: all
   connection: local
+  handlers:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+      become: true
+
   tasks:
     - name: Add GNS3 repository
       ansible.builtin.apt_repository:
         repo: ppa:gns3/ppa
+      notify: Update apt cache
       become: true
 
     - name: Add GNS3 unstable repository
       ansible.builtin.apt_repository:
         repo: ppa:gns3/unstable
-      become: true
-
-    - name: Update apt cache
-      ansible.builtin.apt:
-        update_cache: true
+      notify: Update apt cache
       become: true
 
     - name: Install GNS3 package
