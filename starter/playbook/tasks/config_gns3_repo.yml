@@ -4,3 +4,8 @@
   ansible.builtin.apt_repository:
     repo: ppa:gns3/ppa
   become: true
+
+- name: Add GNS3 unstable repository
+  ansible.builtin.apt_repository:
+    repo: ppa:gns3/unstable
+  become: true
