@@ -22,6 +22,9 @@
       notify: Update apt cache
       become: true
 
+    - name: Flush handler if we need to update apt cache before install
+      ansible.builtin.meta: flush_handlers
+
     - name: Install GNS3 package
       ansible.builtin.package:
         name:
