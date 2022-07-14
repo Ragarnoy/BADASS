@@ -19,7 +19,7 @@
         state: latest
       become: true
 
-    - ansible.builtin.import_tasks: config_docker_repo.yml
+    - ansible.builtin.import_playbook: config_docker_repo.yml
     - ansible.builtin.import_playbook: config_gns3_repo.yml
 
     - name: Install netutils
