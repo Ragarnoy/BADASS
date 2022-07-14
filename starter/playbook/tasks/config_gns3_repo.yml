@@ -23,3 +23,11 @@
       - gns3-webclient-pack
     state: latest
   become: true
+
+- name: Add vagrant to ubridge group
+  ansible.builtin.user:
+    name: vagrant
+    append: true
+    groups:
+      - ubridge
+  become: true
