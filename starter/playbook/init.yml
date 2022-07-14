@@ -19,9 +19,6 @@
         state: latest
       become: true
 
-    - ansible.builtin.import_playbook: config_docker_repo.yml
-    - ansible.builtin.import_playbook: config_gns3_repo.yml
-
     - name: Install netutils
       ansible.builtin.package:
         name:
@@ -30,4 +27,6 @@
         state: latest
       become: true
 
-    - ansible.builtin.import_playbook: setup_desktop_env.yml
+- ansible.builtin.import_playbook: config_docker_repo.yml
+- ansible.builtin.import_playbook: config_gns3_repo.yml
+- ansible.builtin.import_playbook: setup_desktop_env.yml
