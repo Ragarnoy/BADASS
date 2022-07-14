@@ -30,4 +30,4 @@
         state: latest
       become: true
 
-    - ansible.builtin.import_tasks: setup_desktop_env.yml
+    - ansible.builtin.import_playbook: setup_desktop_env.yml
