@@ -1,5 +1,5 @@
 ---
-- name: Setup & Configure Desktop env
+- name: Setup & Configure GNS3
   hosts: all
   connection: local
   handlers:
