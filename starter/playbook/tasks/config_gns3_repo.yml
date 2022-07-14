@@ -1,0 +1,6 @@
+
+---
+- name: Add GNS3 repository
+  ansible.builtin.apt_repository:
+    repo: ppa:gns3/ppa
+  become: true

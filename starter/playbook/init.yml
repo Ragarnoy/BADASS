@@ -19,34 +19,8 @@
         state: latest
       become: true
 
-    - name: Add Docker GPG key
-      ansible.builtin.get_url:
-        url: https://download.docker.com/linux/ubuntu/gpg
-        dest: /tmp/docker.gpg
-        mode: 0o600
-
-    - name: Extract Docker GPG key
-      ansible.builtin.command: >
-        gpg --dearmor -o /etc/apt/keyrings/docker.gpg /tmp/docker.gpg
-      args:
-        creates: /etc/apt/keyrings/docker.gpg
-      become: true
-
-    - name: Configure docker repository
-      ansible.builtin.shell: |
-        set -o pipefail
-        echo \
-          "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
-          | sudo tee /etc/apt/sources.list.d/docker.list
-      args:
-        creates: /etc/apt/sources.list.d/docker.list
-        executable: /bin/bash
-      become: true
-
-    - name: Add GNS3 repository
-      ansible.builtin.apt_repository:
-        repo: ppa:gns3/ppa
-      become: true
+    - ansible.builtin.import_tasks: config_docker_repo.yml
+    - ansible.builtin.import_tasks: config_gns3_repo.yml
 
     - name: Update apt cache
       ansible.builtin.apt:
@@ -77,21 +51,4 @@
           - docker
       become: true
 
-    - name: install Desktop env
-      ansible.builtin.package:
-        name:
-          - ubuntu-desktop
-          - lightdm
-        state: latest
-      become: true
-
-    - name: Config Display manager
-      ansible.builtin.shell: |
-        spawn dpkg-reconfigure lightdm -f readline
-        expect "Default display manager:"
-        send "2\r"
-        expect eof
-        exit
-      args:
-        executable: /usr/bin/expect
-      become: true
+    - ansible.builtin.import_tasks: setup_desktop_env.yml
