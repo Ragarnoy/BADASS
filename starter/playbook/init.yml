@@ -35,9 +35,6 @@
           - containerd.io
           - docker-compose-plugin
 
-          - gns3-gui
-          - gns3-server
-
           - dnsutils
           - wireshark
         state: latest

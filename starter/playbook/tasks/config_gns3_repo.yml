@@ -9,3 +9,17 @@
   ansible.builtin.apt_repository:
     repo: ppa:gns3/unstable
   become: true
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+
+- name: Install GNS3 package
+  ansible.builtin.package:
+    name:
+      - gns3-gui
+      - gns3-server
+      - gns3-webclient-pack
+    state: latest
+  become: true
