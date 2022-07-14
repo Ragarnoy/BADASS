@@ -5,6 +5,5 @@ RUN apk add bash
 WORKDIR /usr/lib/frr
 
 COPY daemons.conf /etc/frr/daemons
-COPY start.sh /frr/start.sh
 
-ENTRYPOINT [ "/frr/start.sh" ]
+ENTRYPOINT [ "/usr/lib/frr/docker-start.sh" ]
