@@ -2,6 +2,13 @@
 - name: Setup & Configure Desktop env
   hosts: all
   connection: local
+  handlers:
+    - name: Restart lightdm
+      ansible.builtin.service:
+        name: lightdm
+        state: restarted
+      become: true
+
   tasks:
     - name: install Desktop env
       ansible.builtin.package:
@@ -27,4 +34,12 @@
         executable: /usr/bin/expect
       changed_when: true
       when: default_display_manager.stdout != "/usr/sbin/lightdm"
+      become: true
+
+    - name: Configure lidhtdm
+      ansible.builtin.template:
+        src: lightdm.conf.j2
+        dest: /etc/lightdm/lightdm.conf.d/autologin.conf
+        mode: 0o644
+      notify: Restart lightdm
       become: true
