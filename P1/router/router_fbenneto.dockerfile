@@ -6,4 +6,4 @@ WORKDIR /usr/lib/frr
 
 COPY daemons.conf /etc/frr/daemons
 
-ENTRYPOINT [ "/usr/lib/frr/docker-start.sh" ]
+ENTRYPOINT [ "/usr/lib/frr/docker-start" ]
