@@ -6,3 +6,8 @@
 - An end device (e.g.: a laptop / desktop)
 - A Router
 - A Switch
+
+## Useful links
+
+- [What is GNS3](https://docs.gns3.com/docs/)
+- [GNS3 GUI](https://docs.gns3.com/docs/using-gns3/beginners/the-gns3-gui)
