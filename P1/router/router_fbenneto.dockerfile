@@ -1,6 +1,6 @@
 FROM frrouting/frr:v8.2.2
 
-RUN apk add bash
+RUN apk add bash util-linux
 
 WORKDIR /usr/lib/frr
 
