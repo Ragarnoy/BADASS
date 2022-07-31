@@ -1,8 +1,9 @@
 set -eux
 
-ROUTER_IMG_NAME=router
 
 function get_router_containers() {
+    ROUTER_IMG_NAME=router
+
     docker ps --format '{{ .ID }}' --filter "ancestor=${ROUTER_IMG_NAME}" | xargs -n 1 docker inspect --format '{{ .Id }} {{ .Config.Hostname }}'
 }
 
