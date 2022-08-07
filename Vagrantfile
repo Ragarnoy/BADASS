@@ -3,7 +3,7 @@ def gui_enabled?
 end
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/jammy64"
+    config.vm.box = "ubuntu/focal64"
     config.vm.hostname = "badass"
 
     config.vm.provider "virtualbox" do |vb|
