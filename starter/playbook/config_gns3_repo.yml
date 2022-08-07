@@ -15,12 +15,6 @@
       notify: Update apt cache
       become: true
 
-    - name: Add GNS3 unstable repository
-      ansible.builtin.apt_repository:
-        repo: ppa:gns3/unstable
-      notify: Update apt cache
-      become: true
-
     - name: Flush handler if we need to update apt cache before install
       ansible.builtin.meta: flush_handlers
 
@@ -29,7 +23,6 @@
         name:
           - gns3-gui
           - gns3-server
-          - gns3-webclient-pack
         state: latest
       become: true
 
