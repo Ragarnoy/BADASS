@@ -13,7 +13,7 @@
 
 ### Configure the switch
 
-To configure the script, execute the script [`switch_cfg.sh`](switch_cfg.sh) with the container name/id of the switch
+To configure the script, execute the script [`switch_cfg.sh`](switch_cfg.sh) with the container name/id of the switch.
 
 ```bash
 $ bash switch_cfg.sh b4db6a44a83e
@@ -39,6 +39,8 @@ This script will bridge every `eth*` interface together by using a bridge interf
 ### Configure the routers
 
 #### Configure the routers with UNICAST VXLAN
+
+To configure the routers to use VXLAN in UNICAST mode, execute [`routers_unicast.sh`](routers_unicast.sh)
 
 ```bash
 $ bash routers_unicast.sh
@@ -137,6 +139,8 @@ br0             8000.9e4e21a3b87e       no              eth1
 ```
 
 #### Configure the routers with GROUP VXLAN
+
+To configure the routers to use VXLAN in GROUP mode, execute [`routers_group.sh`](routers_group.sh)
 
 ```bash
 $ bash routers_group.sh
@@ -257,7 +261,6 @@ $ bash hosts_cfg.sh
     link/ether b2:33:f4:04:e5:72 brd ff:ff:ff:ff:ff:ff
 + ID=3
 ```
-
 
 ## Sources
 
