@@ -4,5 +4,5 @@
 set -eux
 
 for host in $*; do
-    docker exec $host bash -c "set -eux; ip link add name br0 type bridge && for eth in \$(ip link show | grep 'eth\d\d*' | sed 's/\d*: eth\(\d*\).*/eth\1/'); do brctl addif br0 \$eth; done && ip link set up br0 && brctl show br0"
+    docker exec $host bash < switch_net_config.sh
 done
