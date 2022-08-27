@@ -1,3 +1,4 @@
+# This script is used by `routers_unicast.sh`
 set -eux
 
 LOCAL_IP=$LOCAL_IP

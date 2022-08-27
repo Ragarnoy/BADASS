@@ -1,3 +1,4 @@
+# This script configure the routers to use vxlan in group mode.
 set -eux
 
 source config_routers.sh

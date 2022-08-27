@@ -1,3 +1,4 @@
+# Configure the hosts containers.
 set -eux
 
 function get_hosts_containers() {

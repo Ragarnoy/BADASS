@@ -1,3 +1,4 @@
+# This script is used by `routers_group.sh`
 set -eux
 
 LOCAL_IP=$LOCAL_IP
