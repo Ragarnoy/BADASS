@@ -4,5 +4,5 @@
 set -eux
 
 for host in $*; do
-    docker exec $host bash < switch_net_config.sh
+    docker exec -i $host bash < switch_net_config.sh
 done
