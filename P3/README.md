@@ -3,7 +3,7 @@
 This part will require to build a network using evpn, bgp & vxlan.
 
 ```vtysh
-do sh ip rout
+do sh ip route
 ```
 
 ```vtysh
