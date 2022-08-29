@@ -56,3 +56,4 @@ bash hosts_cfg.sh
 - [Serverfault Configuring VXLAN unicast in linux](https://serverfault.com/questions/777179/configuring-vxlan-unicast-in-linux)
 - [Vagrantfile vxlan configuration](https://gist.github.com/hkwi/bf37f478bbddafbad21b67d0adcd3370)
 - [VXLAN without multicast](https://vincent.bernat.ch/fr/blog/2017-vxlan-linux#sans-multicast)
+- [VXLAN with FRRouting](https://www.youtube.com/watch?v=u1ka-S6F9UI)
