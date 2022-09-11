@@ -7,5 +7,6 @@ Eventually, the DR and BDR will use theses lists to compute the shortest path to
 A cost is also associated to each link, which is used to compute the shortest path. The cost is computed by the DR and BDR and is based mainly on the bandwidth.  
 
 ## Useful links
+
 - [OSPF Design Guide](https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html)
 - [ELI5: OSPF](https://www.reddit.com/r/explainlikeimfive/comments/1j35qx/comment/cbaqnmk/?context=3)
