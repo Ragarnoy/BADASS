@@ -35,7 +35,7 @@ router bgp 1
 
     address-family l2vpn evpn
       neighbor ibgp activate
-      neighbor ibgp router-reflector-client
+      neighbor ibgp route-reflector-client
     exit-address-family
 !
 
