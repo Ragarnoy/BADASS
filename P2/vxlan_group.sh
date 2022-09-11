@@ -23,11 +23,11 @@ ip link set up dev $VXLAN_DEV
 
 ip link add name $BRIDGE_DEV type bridge
 
-brctl addif $BRIDGE_DEV $VXLAN_DEV
-brctl addif $BRIDGE_DEV $IGRESS_DEV
+ip link set dev $VXLAN_DEV master $BRIDGE_DEV
+ip link set dev $IGRESS_DEV master $BRIDGE_DEV
 
 ip link set up dev $BRIDGE_DEV
 
-brctl show $BRIDGE_DEV
+ip link show master $BRIDGE_DEV
 ip -d link show $BRIDGE_DEV
 ip -d link show $VXLAN_DEV
