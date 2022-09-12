@@ -9,4 +9,5 @@ for eth in $(ip link show | grep 'eth\d\d*' | sed 's/\d*: eth\(\d*\).*/eth\1/');
 done
 
 ip link set up br0
-ip link show master br0
+ip link show br0
+ip a | grep 'master br0'
