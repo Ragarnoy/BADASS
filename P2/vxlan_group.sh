@@ -28,6 +28,6 @@ ip link set dev $IGRESS_DEV master $BRIDGE_DEV
 
 ip link set up dev $BRIDGE_DEV
 
-ip link show master $BRIDGE_DEV
+ip link show $BRIDGE_DEV
 ip -d link show $BRIDGE_DEV
 ip -d link show $VXLAN_DEV
