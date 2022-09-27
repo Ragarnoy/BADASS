@@ -1,11 +1,3 @@
-# VTYSH Configuration
-#
-# ```bash
-# $ vtysh
-# $ conf t
-# [paste the following content]
-# ```
-
 hostname spine_router
 no ipv6 forwarding
 !
