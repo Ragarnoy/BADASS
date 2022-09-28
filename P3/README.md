@@ -15,6 +15,11 @@ Configure the leaf router:
 ```bash
 bash config_leaf_routers.sh
 ```
+
+Configure the host:
+
+```bash
+bash config_hosts.sh
 ```
 
 ## Inspecting
