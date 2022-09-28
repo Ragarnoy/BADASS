@@ -1,4 +1,4 @@
-set -eux
+set -e
 
 ip link add name br0 type bridge
 ip link set up dev br0

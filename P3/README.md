@@ -2,6 +2,23 @@
 
 This part will require to build a network using evpn, bgp & vxlan.
 
+## Configuration
+
+Configure the spine router:
+
+```bash
+bash config_spine_router.sh
+```
+
+Configure the leaf router:
+
+```bash
+bash config_leaf_routers.sh
+```
+```
+
+## Inspecting
+
 ```vtysh
 do sh ip route
 ```
