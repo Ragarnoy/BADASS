@@ -4,6 +4,7 @@ A network switch connects devices within a network and forwards data packets to 
 Unlike a router, a switch only sends data to the single device it is intended for, not to networks of multiple devices.
 
 ## Layer 2 and Layer 3 switches
+
 Switches can operate on the layer 2 (via MAC addresses) or the layer 3 (via IP). Though some can do both, most switches are layer 2 switches.
 
 ## The CAM table
