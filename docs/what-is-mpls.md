@@ -3,7 +3,7 @@
 `MPLS` stand for `Multiprotocol Label Switching`.
 It's a routing technique that directs data from one node to the next using labels instead of addresses.
 
-The difference between a Network addresses and labels is that the addresses identify specific endpoints whereas labels identify paths between endpoints
+The difference between network addresses and labels is that the addresses identify specific endpoints whereas labels identify paths between endpoints.
 
 > Something like:
 >
