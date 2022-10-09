@@ -1,7 +1,7 @@
 # What is BUM
 
 `BUM` also know as `BUM traffic` is an acrynom for **Broadcast, Unknown-unicast, Multicast traffic**.
-`BUM traffic` is any network traffic transmitted using one of the three methods listed above to an destination where its address is **Unknown**.
+`BUM traffic` is any network traffic transmitted using one of the three methods listed above to a destination when its address is **Unknown**.
 
 ## What is the differences between each method
 
