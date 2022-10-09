@@ -2,8 +2,8 @@
 
 ## What is `EVPN`
 
-`EVPN` for `Ethernet VPN` is a technologie for carrying layer 2 Ethernet traffic in a VPN using WAN[^wan] protocols.
-`EVPN` technologie inclue Ethernet over `MPLS`[^mpls] and Ethernet over `VXLAN`[^vxlan].
+`EVPN` for `Ethernet VPN` is a technology for carrying layer 2 Ethernet traffic in a VPN using WAN[^wan] protocols.
+`EVPN` technologies include Ethernet over `MPLS`[^mpls] and Ethernet over `VXLAN`[^vxlan].
 
 [^wan]: Wide Area Network
 [^mpls]: Multiprotocol Label Switching
@@ -11,15 +11,15 @@
 
 ## What is `BGP`
 
-`BGP` stand for `Border Gateway Protocol`, it's a *exterior gateway protocol* designed to exchange routing and reachability information on the Internet.
+`BGP` stand for `Border Gateway Protocol`, it's an *exterior gateway protocol* designed to exchange routing and reachability information on the Internet.
 
 `BGP` is classified as a `path-vector routing protocol`. It makes routing decisions based on paths, network policies or rule-sets configured by a network admin.
 
 ## What is `BGP EVPN`
 
-`BGP EVPN` is the conbination of `BGP` and `EVPN` those the name.
+`BGP EVPN` is the combination of `BGP` and `EVPN`, thus the name.
 It's a protocol that can be used with VXLAN.
-With `BGP EVPN` ours `VTEPs`[^vtep] with publish 2 type of routes:
+With `BGP EVPN` our `VTEPs`[^vtep] will publish 2 type of routes:
 
 1. Type 3 route for the local `VNI`.
 2. Type 2 route for each MAC address in a `VNI`.
